@@ -74,6 +74,20 @@ const baseStyleOptions: StyleOptions = {
 `,
 };
 
+const printCompatibilityCSS = `
+@media print {
+  html,
+  body,
+  #root,
+  #cooldiv {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+`;
+
 const handleStyle = () => {
   if (logseq.settings.retainedOptions.includes("Hide Page Properties")) {
     console.log("Hidden");
@@ -466,7 +480,7 @@ export async function createPDF(
   console.log(finalString);
   console.log(final2String);
   // final2String = result.replace();
-  final3String = `<html><head><style>@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');</style><style>${baseCSS}</style></head><body><style>${css3}</style><div id = "you are cool" style='padding: 1rem'">${final2String}</div></body></html>`;
+  final3String = `<html><head><style>@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');</style><style>${baseCSS}</style><style>${printCompatibilityCSS}</style></head><body><style>${css3}</style><div id="cooldiv" style='padding: 1rem'">${final2String}</div></body></html>`;
 
   logseq.App.getCurrentGraph().then(async (graph) => {
     var final4String = final3String
