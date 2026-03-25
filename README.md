@@ -40,7 +40,7 @@ A plugin to export the current page as your *own* custom styled pdf.
 3. The compiled files are generated in `dist/`.
 
 ### Publish plugin package
-This repository publishes the plugin package from the GitHub Actions workflow at `/home/runner/work/logseq-better-pdf-export/logseq-better-pdf-export/.github/workflows/publish.yml`.
+This repository publishes the plugin package from the GitHub Actions workflow at `.github/workflows/publish.yml`.
 
 1. Create and push a version tag:
    ```bash
