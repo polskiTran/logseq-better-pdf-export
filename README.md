@@ -25,3 +25,29 @@ A plugin to export the current page as your *own* custom styled pdf.
 - Thanks to [@supery-chen](https://github.com/supery-chen?tab=repositories) for the implementation which retains _all_ formatting. YOU ROCK! 🎉
 ---
 <a href="https://www.flaticon.com/free-icons/pdf" title="pdf icons">pdf icons created by Dimitry Miroliubov - Flaticon</a>
+
+## Compile and publish
+
+### Compile locally
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Build the plugin:
+   ```bash
+   npm run build
+   ```
+3. The compiled files are generated in `dist/`.
+
+### Publish plugin package
+This repository publishes the plugin package from the GitHub Actions workflow at `/home/runner/work/logseq-better-pdf-export/logseq-better-pdf-export/.github/workflows/publish.yml`.
+
+1. Create and push a version tag:
+   ```bash
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+2. The `Build plugin` workflow will:
+   - run `npm i && npm run build`
+   - create a zip package containing `README.md`, `package.json`, `logo.png`, and `dist/`
+   - attach the zip and `package.json` to a GitHub Release
